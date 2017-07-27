@@ -16,7 +16,8 @@ Example command:
 
 
 ### Examples:
+
 Two examples are included in the repository, one is to run some basic math operations in the browser, and the other is to search "news" in google. You can run them by cloning the github repository and typing:
 
-docker run -it --volume  full/repo/route/example:/tests epiclabs/e2e-test-runner --specs /tests/features/google.feature
-docker run -it --volume  full/repo/route/example:/tests epiclabs/e2e-test-runner --specs /tests/features/math.feature
+    docker run -it --volume  full/repo/route/example:/tests epiclabs/e2e-test-runner --specs /tests/features/google.feature
+    docker run -it --volume  full/repo/route/example:/tests epiclabs/e2e-test-runner --specs /tests/features/math.feature
