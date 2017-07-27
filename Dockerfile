@@ -60,4 +60,4 @@ RUN npm install -g dateformat request && \
 
 ENV NODE_PATH /src/node_modules
 
-ENTRYPOINT ["protractor.sh"]
+ENTRYPOINT ["/src/protractor.sh"]
