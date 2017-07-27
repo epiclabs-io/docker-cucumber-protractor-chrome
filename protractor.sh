@@ -6,7 +6,7 @@ if [ "$1" = "--help" ]; then
         echo "Copyright (c) Epic Labs 2017. All rights reserved."
         echo ""
         echo "Usage:"
-        echo "docker run -it --volume .../site/portal/frontend:/tests epiclabs/testrunner (protractor options)"
+        echo "docker run -it --volume .../site/portal/frontend:/tests epiclabs/e2e-test-runner (protractor options)"
         echo "options:"
         echo "--specs {pathtotest} Run only one test file"
         echo "--baseUrl {url} URL to be tested"
@@ -14,8 +14,8 @@ if [ "$1" = "--help" ]; then
         echo ""
 
         echo "Examples:"
-        echo "docker run -it --volume .../site/portal/frontend:/tests epiclabs/testrunner --baseUrl http://madlab.epiclabs.io/"
-        echo "docker run -it --volume .../site/portal/frontend:/tests epiclabs/testrunner --baseUrl http://madlab.epiclabs.io/ --specs /tests/features/your.feature"
+        echo "docker run -it --volume .../site/portal/frontend:/tests epiclabs/e2e-test-runner --baseUrl http://madlab.epiclabs.io/"
+        echo "docker run -it --volume .../site/portal/frontend:/tests epiclabs/e2e-test-runner --baseUrl http://madlab.epiclabs.io/ --specs /tests/features/your.feature"
 fi
 
 # Start selenium server and trash the verbose error messages from webdriver

@@ -9,6 +9,6 @@ You can also specify more **protractor parameters**, like `--specs` pointing to 
 
 Example command:
 
-    docker run -it --volume {YOURTESTS}:/tests epiclabs/testrunner --baseUrl {URL} {otherparams}
-    docker run -it --volume /home/tests:/tests epiclabs/testrunner --baseUrl https://www.google.com --specs /tests/features/searching.feature
+    docker run -it --volume {YOURTESTS}:/tests epiclabs/e2e-test-runner --baseUrl {URL} {otherparams}
+    docker run -it --volume /home/tests:/tests epiclabs/e2e-test-runner  --baseUrl https://www.google.com --specs /tests/features/searching.feature
 
