@@ -5,7 +5,7 @@ This image is created to test both AngularJs and non Angular platforms, in fact,
 
 ### Usage:
 
-To run this image you need a **test folder** to be used as *Volume*, inside that folder you should have a **features** folder, with your **Gherkin** syntax features (see [cucumber gherkin](https://cucumber.io/docs/reference)) and inside **features**, you should have a **step_definitions** folder with you JS definitions (Using **protractor** and **chai**)
+To run this image you need a **test folder** to be used as *Volume*, inside that folder you should have a **features** folder, with your **Gherkin** syntax features (see [cucumber gherkin](https://cucumber.io/docs/reference)) and inside **features**, you should have a **step_definitions** folder with your JS definitions (Using **protractor** and **chai**)
 
 You can also specify more **protractor parameters**, like `--specs` pointing to one feature file.
 
