@@ -21,3 +21,19 @@ Two examples are included in the repository, one is to run some basic math opera
 
     docker run -it --volume  full/repo/route/example:/tests epiclabs/e2e-test-runner --specs /tests/features/google.feature
     docker run -it --volume  full/repo/route/example:/tests epiclabs/e2e-test-runner --specs /tests/features/math.feature
+    docker run -it --volume  /Users/alvaroescarcha/epic/github/docker-cucumber-protractor-chrome/example:/tests epiclabs/e2e-test-runner --baseUrl https://www.google.com --specs /tests/features/*.feature
+
+
+### Debugging:
+
+Messages from Selenium and WebDriver are ignored because they polute the console, you can change this by downloading the repository, modifying protractor.sh lines:
+
+    node_modules/webdriver-manager/bin/webdriver-manager  update 2>/dev/null &
+    node_modules/webdriver-manager/bin/webdriver-manager  start 2>/dev/null & 
+
+to:
+
+    node_modules/webdriver-manager/bin/webdriver-manager  update &
+    node_modules/webdriver-manager/bin/webdriver-manager  start &
+
+This way you can see errors coming from Selenium then do a `docker build .` and run the Image with the given hash instead of the dockerhub image
