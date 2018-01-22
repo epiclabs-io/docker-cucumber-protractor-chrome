@@ -26,14 +26,4 @@ Two examples are included in the repository, one is to run some basic math opera
 
 ### Debugging:
 
-Messages from Selenium and WebDriver are ignored because they polute the console, you can change this by downloading the repository, modifying protractor.sh lines:
-
-    node_modules/webdriver-manager/bin/webdriver-manager  update 2>/dev/null &
-    node_modules/webdriver-manager/bin/webdriver-manager  start 2>/dev/null & 
-
-to:
-
-    node_modules/webdriver-manager/bin/webdriver-manager  update &
-    node_modules/webdriver-manager/bin/webdriver-manager  start &
-
-This way you can see errors coming from Selenium then do a `docker build .` and run the Image with the given hash instead of the dockerhub image
+Messages from Selenium and WebDriver are ignored because they polute the console, you can change this by using the `--debugger` flag:

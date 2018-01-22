@@ -19,10 +19,17 @@ if [ "$1" = "--help" ]; then
 fi
 
 # Start selenium server and trash the verbose error messages from webdriver
-node_modules/webdriver-manager/bin/webdriver-manager  update 2>/dev/null &
-node_modules/webdriver-manager/bin/webdriver-manager  start 2>/dev/null &
+if [[ $* == *--debugger* ]]
+then
+echo "Launching in debug mode..."
+node_modules/webdriver-manager/bin/webdriver-manager  update &
+node_modules/webdriver-manager/bin/webdriver-manager  start &
+else
+node_modules/webdriver-manager/bin/webdriver-manager  update  2>/dev/null &
+node_modules/webdriver-manager/bin/webdriver-manager  start  2>/dev/null &
+fi
 # Wait 3 seconds for port 4444 to be listening connections
-while ! nc -z 127.0.0.1 4444; do sleep 3; done
+while ! nc -z 127.0.0.1 4444;  do echo "Waiting for selenium on 127.0.0.1"; sleep 3; done
 node_modules/.bin/protractor  "$@" --disableChecks
 node_modules/webdriver-manager/bin/webdriver-manager shutdown
 #Now force shut
