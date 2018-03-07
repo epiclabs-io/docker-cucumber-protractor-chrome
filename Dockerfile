@@ -1,7 +1,7 @@
-FROM java:9-jdk
+FROM java:latest
 
 RUN apt-get update && \
-    apt-get install -y gpg curl build-essential vim netcat xvfb wget curl gconf-service libgconf-2-4 libnspr4 libnss3 libpango1.0-0 libappindicator1 libcurl3 libxss1 fonts-liberation xdg-utils && \
+    apt-get install -y curl build-essential vim netcat xvfb wget curl gconf-service libgconf-2-4 libnspr4 libnss3 libpango1.0-0 libappindicator1 libcurl3 libxss1 fonts-liberation xdg-utils && \
     apt-get -y autoremove && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/*
@@ -21,8 +21,8 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 6.4.0
+ENV NPM_CONFIG_LOGLEVEL warn
+ENV NODE_VERSION 9.7.1
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
