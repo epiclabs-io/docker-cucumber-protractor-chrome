@@ -21,16 +21,17 @@ fi
 # Start selenium server and trash the verbose error messages from webdriver
 if [[ $* == *--debugger* ]]
 then
-echo "Launching in debug mode..."
-node_modules/webdriver-manager/bin/webdriver-manager  update &
-node_modules/webdriver-manager/bin/webdriver-manager  start &
+        echo "Launching in debug mode..."
+        node_modules/webdriver-manager/bin/webdriver-manager update
+        node_modules/webdriver-manager/bin/webdriver-manager start &
 else
-node_modules/webdriver-manager/bin/webdriver-manager  update  2>/dev/null &
-node_modules/webdriver-manager/bin/webdriver-manager  start  2>/dev/null &
+        node_modules/webdriver-manager/bin/webdriver-manager update 2>/dev/null
+        node_modules/webdriver-manager/bin/webdriver-manager start 2>/dev/null &
 fi
 # Wait 3 seconds for port 4444 to be listening connections
-while ! nc -z 127.0.0.1 4444;  do echo "Waiting for selenium on 127.0.0.1"; sleep 3; done
-node_modules/.bin/protractor  "$@" --disableChecks
+while ! nc -z 127.0.0.1 4444; do echo "Waiting for selenium on 127.0.0.1"; sleep 3; done
+# run the tests
+node_modules/.bin/protractor "$@" --disableChecks
 node_modules/webdriver-manager/bin/webdriver-manager shutdown
 #Now force shut
 pkill -f webdriver-manager 2>/dev/null &
