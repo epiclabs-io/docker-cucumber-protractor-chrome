@@ -26,4 +26,4 @@ Two examples are included in the repository, one is to run some basic math opera
 
 ### Debugging:
 
-Messages from Selenium and WebDriver are ignored because they polute the console, you can change this by using the `--debugger` flag:
+Messages from Selenium and WebDriver are ignored because they pollute the console, you can change this by using the `--debugger` flag:
