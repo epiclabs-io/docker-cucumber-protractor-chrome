@@ -31,18 +31,15 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
-CMD [ "node" ]
-
 RUN useradd headless --shell /bin/bash --create-home \
   && usermod -a -G sudo headless \
   && echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers \
   && echo 'headless:nopassword' | chpasswd
 
 USER root
-
 COPY . /src
+COPY example /tests
 VOLUME /tests
-
 WORKDIR /src
 
 RUN npm install -g dateformat request && \
