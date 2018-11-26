@@ -10,8 +10,9 @@ To run this image you need a **test folder** to be used as *Volume*, inside that
 You can also specify more **protractor parameters**, like `--specs` pointing to one feature file.
 
 Example commands:
+
     docker run -it --volume {YOURTESTS}:/tests epiclabs/e2e-test-runner --baseUrl {URL} {otherparams}
-    docker run -it --volume /home/tests:/tests epiclabs/e2e-test-runner  --baseUrl https://www.google.com --specs /tests/features/searching.feature
+    docker run -it --volume /home/tests:/tests epiclabs/e2e-test-runner --baseUrl https://www.google.com --specs /tests/features/searching.feature
 
 
 ### Examples:
@@ -23,4 +24,4 @@ Two examples are included in the repository, one is to run some basic math opera
 
 ### Debugging:
 
-Messages from Selenium and WebDriver are ignored because they pollute the console, you can change this by using the `--debugger` flag:
+Messages from Selenium and WebDriver are ignored because they pollute the console, you can change this by using the `--debugger` flag.
